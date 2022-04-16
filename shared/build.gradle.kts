@@ -17,14 +17,37 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+
+            dependencies {
+                api(Deps.Kotlinx.coroutinesCore)
+
+
+                //KTOR
+                api(Deps.Kotlinx.coroutinesCore)
+                api(Deps.KTor.ktorClientCore)
+                api(Deps.KTor.ktorClientCIO)
+                api(Deps.KTor.ktorClientSerialization)
+                api(Deps.KTor.ktorClientLogging)
+                api(Deps.KTor.ktorClientAuth)
+                api(Deps.kotlinSerializationJson)
+
+
+                // koin
+                api(Koin.core)
+            }
+
+        }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
             }
         }
         val androidMain by getting
         val androidTest by getting
+
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting

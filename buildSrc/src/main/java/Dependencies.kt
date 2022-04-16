@@ -5,14 +5,14 @@ object Versions {
     const val koin = "3.1.4"
     const val apollo = "3.2.2"
     const val multiplatformPaging = "0.4.7"
-
+    const val ktorVersion = "1.6.8"
     const val compose = "1.1.1"
     const val composeCompiler = "1.1.1"
     const val navCompose = "2.4.1"
     const val pagingCompose = "1.0.0-alpha14"
     const val accompanist = "0.23.0"
     const val coilComposeVersion = "1.4.0"
-
+    const val kotlinxSerializationJson = "1.3.2"
     const val junit = "4.13"
 }
 
@@ -27,6 +27,20 @@ object Deps {
     const val apolloRuntime = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo}"
     const val apolloNormalizedCache = "com.apollographql.apollo3:apollo-normalized-cache:${Versions.apollo}"
     const val multiplatformPaging = "io.github.kuuuurt:multiplatform-paging:${Versions.multiplatformPaging}"
+
+    object KTor {
+        const val ktorClientCore = "io.ktor:ktor-client-core:${Versions.ktorVersion}"
+        const val ktorClientCIO = "io.ktor:ktor-client-cio:${Versions.ktorVersion}"
+        const val ktorClientSerialization =
+            "io.ktor:ktor-client-serialization:${Versions.ktorVersion}"
+        const val ktorClientLogging = "io.ktor:ktor-client-logging:${Versions.ktorVersion}"
+        const val ktorClientAuth = "io.ktor:ktor-client-auth:${Versions.ktorVersion}"
+        const val ktorClientAndroid = "io.ktor:ktor-client-android:${Versions.ktorVersion}"
+        const val ktorClientIOS = "io.ktor:ktor-client-ios:${Versions.ktorVersion}"
+    }
+
+    const val kotlinSerializationJson =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerializationJson}"
 
     object Kotlinx {
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
