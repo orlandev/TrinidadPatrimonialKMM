@@ -1,5 +1,6 @@
 
 object Versions {
+    const val napierVersion = "2.5.0"
     const val kotlinVersion = "1.6.10"
     const val kotlinxCoroutines = "1.6.0"
     const val koin = "3.1.4"
@@ -27,8 +28,12 @@ object AndroidSdk {
 
 object Deps {
     const val apolloRuntime = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo}"
-    const val apolloNormalizedCache = "com.apollographql.apollo3:apollo-normalized-cache:${Versions.apollo}"
-    const val multiplatformPaging = "io.github.kuuuurt:multiplatform-paging:${Versions.multiplatformPaging}"
+    const val apolloNormalizedCache =
+        "com.apollographql.apollo3:apollo-normalized-cache:${Versions.apollo}"
+    const val multiplatformPaging =
+        "io.github.kuuuurt:multiplatform-paging:${Versions.multiplatformPaging}"
+
+    const val napierLoggin = "io.github.aakira:napier:${Versions.napierVersion}"
 
     object KTor {
         const val ktorClientCore = "io.ktor:ktor-client-core:${Versions.ktorVersion}"

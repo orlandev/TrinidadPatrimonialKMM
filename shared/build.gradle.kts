@@ -28,9 +28,9 @@ kotlin {
 
                 //KTOR
                 implementation(Deps.KTor.ktorClientCore)
-
                 implementation(Deps.KTor.ktorClientSerialization)
                 implementation(Deps.KTor.ktorClientLogging)
+                implementation(Deps.napierLoggin)
                 implementation(Deps.KTor.ktorClientAuth)
                implementation(Deps.kotlinSerializationJson)
                 implementation(Deps.SqlDelight.sqldelightCoroutineExtensions)

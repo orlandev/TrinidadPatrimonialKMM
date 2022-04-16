@@ -1,6 +1,7 @@
 package com.inmersoft.trinidadpatrimonialkmm.data.remote
 
 import com.inmersoft.trinidadpatrimonialkmm.data.remote.dto.TrinidadResponseDto
+import io.github.aakira.napier.Napier
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.json.*
@@ -13,8 +14,12 @@ class TrinidadApi {
     private val httpClient = HttpClient() {
 
         install(Logging) {
-            logger = Logger.DEFAULT
             level = LogLevel.ALL
+            logger = object : Logger {
+                override fun log(message: String) {
+                    Napier.v(tag = "HTTP Client", message = message)
+                }
+            }
         }
 
         install(JsonFeature) {
