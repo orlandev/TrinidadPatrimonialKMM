@@ -1,0 +1,16 @@
+CREATE TABLE placeTypeEntity (
+    id INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    name TEXT NOT NULL,
+    classification TEXT NOT NULL,
+    icon TEXT NOT NULL
+);
+
+getAllPlaceType:
+SELECT * FROM placeTypeEntity;
+
+getPlaceTypeById:
+SELECT * FROM placeTypeEntity WHERE id=:id;
+
+insertPlaceType:
+INSERT OR REPLACE
+INTO placeTypeEntity VALUES(?,?,?,?);

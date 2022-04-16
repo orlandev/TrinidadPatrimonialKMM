@@ -14,6 +14,7 @@ object Versions {
     const val coilComposeVersion = "1.4.0"
     const val kotlinxSerializationJson = "1.3.2"
     const val junit = "4.13"
+    const val sqldelightVersion = "1.5.3"
 }
 
 
@@ -30,7 +31,7 @@ object Deps {
 
     object KTor {
         const val ktorClientCore = "io.ktor:ktor-client-core:${Versions.ktorVersion}"
-        const val ktorClientCIO = "io.ktor:ktor-client-cio:${Versions.ktorVersion}"
+        const val ktorClientOKHTTP = "io.ktor:ktor-client-okhttp:${Versions.ktorVersion}"
         const val ktorClientSerialization =
             "io.ktor:ktor-client-serialization:${Versions.ktorVersion}"
         const val ktorClientLogging = "io.ktor:ktor-client-logging:${Versions.ktorVersion}"
@@ -44,6 +45,19 @@ object Deps {
 
     object Kotlinx {
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
+    }
+
+
+    object SqlDelight {
+        const val gradlePlugin =
+            "com.squareup.sqldelight:gradle-plugin:${Versions.sqldelightVersion}"
+        const val sqldelightCoroutineExtensions =
+            "com.squareup.sqldelight:coroutines-extensions:${Versions.sqldelightVersion}"
+        const val sqldelightAndroidDriver =
+            "com.squareup.sqldelight:android-driver:${Versions.sqldelightVersion}"
+
+        const val sqldelightNativeDriver =
+            "com.squareup.sqldelight:native-driver:${Versions.sqldelightVersion}"
     }
 }
 

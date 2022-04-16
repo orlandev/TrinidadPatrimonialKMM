@@ -1,0 +1,10 @@
+CREATE TABLE textContentEntity (
+     id TEXT NOT NULL CONSTRAINT pk PRIMARY KEY,
+    content TEXT NOT NULL
+);
+
+getAllTextContent:
+SELECT * FROM textContentEntity;
+
+insertTextContent:
+INSERT OR REPLACE INTO textContentEntity VALUES(?,?);

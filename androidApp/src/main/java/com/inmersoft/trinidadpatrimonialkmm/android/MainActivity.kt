@@ -10,10 +10,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.inmersoft.trinidadpatrimonialkmm.Greeting
 
 fun greet(): String {
-    return Greeting().greeting()
+    return "THIS IS ANDROID"
 }
 
 class MainActivity : AppCompatActivity() {

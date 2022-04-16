@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}")
         classpath("com.android.tools.build:gradle:7.1.3")
+        classpath(Deps.SqlDelight.gradlePlugin)
     }
 }
 

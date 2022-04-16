@@ -1,0 +1,21 @@
+CREATE TABLE routeEntity (
+    id INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    headerImages TEXT NOT NULL,
+    placesId TEXT NOT NULL,
+    video TEXT NOT NULL,
+    web TEXT NOT NULL
+);
+
+getAllRoutes:
+SELECT * FROM routeEntity;
+
+getRouteById:
+SELECT * FROM routeEntity WHERE id=:id;
+
+insertRoute:
+INSERT OR REPLACE
+INTO routeEntity VALUES(?,?,?,?,?,?,?);
+
+

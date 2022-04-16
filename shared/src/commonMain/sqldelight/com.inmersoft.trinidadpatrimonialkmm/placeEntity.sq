@@ -1,0 +1,28 @@
+CREATE TABLE placeEntity (
+    id INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    headerImages TEXT NOT NULL,
+    location TEXT NOT NULL,
+    model3d TEXT NOT NULL,
+    stars REAL NOT NULL,
+    comments TEXT NOT NULL,
+    placeType TEXT NOT NULL,
+    video TEXT NOT NULL,
+    routes TEXT NOT NULL,
+    pano TEXT NOT NULL,
+    web TEXT NOT NULL,
+    content TEXT NOT NULL
+);
+
+getAllPlaces:
+SELECT * FROM placeEntity;
+
+getPlaceById:
+SELECT * FROM placeEntity WHERE id=:id;
+
+insertPlace:
+INSERT OR REPLACE
+INTO placeEntity VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+

@@ -1,6 +1,9 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    kotlin("plugin.serialization") version Versions.kotlinVersion
+    kotlin("kapt")
+    id("com.squareup.sqldelight")
 }
 
 kotlin {
@@ -24,14 +27,13 @@ kotlin {
 
 
                 //KTOR
-                api(Deps.Kotlinx.coroutinesCore)
-                api(Deps.KTor.ktorClientCore)
-                api(Deps.KTor.ktorClientCIO)
-                api(Deps.KTor.ktorClientSerialization)
-                api(Deps.KTor.ktorClientLogging)
-                api(Deps.KTor.ktorClientAuth)
-                api(Deps.kotlinSerializationJson)
+                implementation(Deps.KTor.ktorClientCore)
 
+                implementation(Deps.KTor.ktorClientSerialization)
+                implementation(Deps.KTor.ktorClientLogging)
+                implementation(Deps.KTor.ktorClientAuth)
+               implementation(Deps.kotlinSerializationJson)
+                implementation(Deps.SqlDelight.sqldelightCoroutineExtensions)
 
                 // koin
                 api(Koin.core)
@@ -44,7 +46,13 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting{
+
+            dependencies {
+                implementation(Deps.KTor.ktorClientOKHTTP)
+            }
+
+        }
         val androidTest by getting
 
 
@@ -56,6 +64,10 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+                dependencies {
+                    implementation(Deps.SqlDelight.sqldelightNativeDriver)
+                    implementation(Deps.KTor.ktorClientIOS)
+                }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -65,6 +77,11 @@ kotlin {
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
+        }
+    }
+    sqldelight {
+        database("TrinidadDb") {
+            packageName = "com.inmersoft.trinidadpatrimonialkmm"
         }
     }
 }
