@@ -72,6 +72,9 @@ dependencies {
     implementation(Compose.paging)
     implementation(Compose.coilCompose)
 
+    //Compose Material 3
+    implementation(Compose.material3)
+
     implementation(Koin.core)
     implementation(Koin.android)
     implementation(Koin.compose)

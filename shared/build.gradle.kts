@@ -50,6 +50,8 @@ kotlin {
 
             dependencies {
                 implementation(Deps.KTor.ktorClientOKHTTP)
+                implementation(Deps.SqlDelight.sqldelightAndroidDriver)
+                implementation(Deps.KTor.ktorClientAndroid)
             }
 
         }
