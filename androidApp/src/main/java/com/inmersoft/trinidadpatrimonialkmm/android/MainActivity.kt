@@ -32,7 +32,10 @@ import com.inmersoft.trinidadpatrimonialkmm.domain.interceptors.GetTextContentDa
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.Place
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.PlaceType
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.Route
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.collections.CollectionTypes
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.TextContent
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.toEventModel
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.events.EventModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -70,10 +73,21 @@ class MainActivity : AppCompatActivity() {
                 mutableStateOf<List<TextContent>>(emptyList())
             }
 
+            val listEvents = rememberSaveable {
+                mutableStateOf<List<EventModel>>(emptyList())
+            }
+
             LaunchedEffect(Unit) {
 
                 scope.launch {
                     t.fetchAndCacheData(userLocale = "es")
+
+                    val events = withContext(Dispatchers.IO) {
+                        t.fetchByCollection("en", CollectionTypes.Events.id)
+                    }
+
+                    listEvents.value = events.content.map { it.toEventModel() }
+
                     val routes =
                         withContext(Dispatchers.IO) { GetRoutesInteractorImpl(t).execute() }
                     listRoutes.value = routes
@@ -100,11 +114,36 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {// Remember a SystemUiController
 
-                    Box(modifier = Modifier.fillMaxSize().blur(
-                        30.dp,
-                        edgeTreatment = BlurredEdgeTreatment.Unbounded
-                    ), contentAlignment = Alignment.Center) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .blur(
+                                30.dp,
+                                edgeTreatment = BlurredEdgeTreatment.Unbounded
+                            ), contentAlignment = Alignment.Center
+                    ) {
                         LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            item {
+                                Text(text = "EVENTS")
+                            }
+                            item {
+                                LazyRow(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                ) {
+                                    items(listEvents.value) { event ->
+                                        Card(
+                                            modifier = Modifier
+                                                .width(260.dp)
+                                        ) {
+                                            Text(text = event.title)
+                                            Text(text = event.subtitle)
+                                            Text(text = "${event.content.size} contents")
+                                            Text(text = event.location)
+                                        }
+                                    }
+                                }
+                            }
                             item {
                                 Text(text = "PLACES")
                             }

@@ -1,6 +1,7 @@
 package com.inmersoft.trinidadpatrimonialkmm.data.remote
 
 import com.inmersoft.trinidadpatrimonialkmm.data.remote.dto.TrinidadResponseDto
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.ContentDTO
 import io.github.aakira.napier.Napier
 import io.ktor.client.*
 import io.ktor.client.features.*
@@ -37,6 +38,13 @@ class TrinidadApi {
 
     suspend fun getTrinidadData(userLocale: String = "en"): TrinidadResponseDto {
         return httpClient.get("$TRINIDAD_API_ENDPOINT/api/load/all?lang=$userLocale")
+    }
+
+    suspend fun fetchAllByCollection(
+        lang: String = "en",
+        collection: String
+    ): ContentDTO {
+        return httpClient.get("$TRINIDAD_API_ENDPOINT/api/load/all?lang=$lang&collection=$collection")
     }
 
     companion object {

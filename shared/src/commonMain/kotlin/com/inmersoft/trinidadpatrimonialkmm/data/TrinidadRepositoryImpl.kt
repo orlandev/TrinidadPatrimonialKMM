@@ -7,6 +7,7 @@ import com.inmersoft.trinidadpatrimonialkmm.domain.TrinidadRepository
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.Place
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.PlaceType
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.Route
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.ContentDTO
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.TextContent
 import kotlinx.coroutines.withContext
 
@@ -24,6 +25,10 @@ class TrinidadRepositoryImpl(
             localDataSource.insertPlaceType(resultDto.placeTypes)
             localDataSource.insertTextContent(resultDto.texts)
         }
+    }
+
+    override suspend fun fetchByCollection(lang: String, collection: String): ContentDTO {
+        return remoteDataSource.fetchAllByCollection(lang, collection)
     }
 
     override suspend fun getPlaceTypesFromDb(): List<PlaceType> {
