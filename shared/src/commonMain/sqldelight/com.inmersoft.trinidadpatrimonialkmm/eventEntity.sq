@@ -1,0 +1,23 @@
+CREATE TABLE eventEntity (
+    eventId INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    title TEXT NOT NULL,
+    subtitle TEXT NOT NULL,
+    content TEXT NOT NULL,
+    headerImages TEXT NOT NULL,
+    date REAL NOT NULL,
+    start REAL NOT NULL,
+    end REAL NOT NULL,
+    location TEXT NOT NULL
+);
+
+getAllEvents:
+SELECT * FROM eventEntity ORDER BY date DESC;
+
+getEventById:
+SELECT * FROM eventEntity WHERE eventId=:id;
+
+insertEvent:
+INSERT OR REPLACE
+INTO eventEntity VALUES(?,?,?,?,?,?,?,?,?);
+
+

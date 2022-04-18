@@ -1,0 +1,27 @@
+package com.inmersoft.trinidadpatrimonialkmm.domain.models.posts.analytics
+
+enum class EventType {
+    AD_IMPRESSION,
+    ADD_PAYMENT_INFO,
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
+    ADD_SHIPPING_INFO,
+    ADD_TO_WISHLIST,
+    BEGIN_CHECKOUT,
+    PURCHASE,
+    APP_OPEN,
+    LOGIN,
+    SIGN_UP,
+    SEARCH,
+    SELECT_CONTENT,
+    SHARE,
+    TUTORIAL_BEGIN,
+    TUTORIAL_COMPLETE,
+    VIEW_ITEM,
+    VIEW_ITEM_LIST,
+    VIEW_SEARCH_RESULTS,
+    SCREEN_VIEW,
+    SELECT_ITEM,
+    VIEW_CART,
+    REVIEW,
+}

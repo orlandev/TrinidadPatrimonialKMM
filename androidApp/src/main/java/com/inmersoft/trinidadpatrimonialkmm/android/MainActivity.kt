@@ -35,7 +35,9 @@ import com.inmersoft.trinidadpatrimonialkmm.domain.models.Route
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.collections.CollectionTypes
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.TextContent
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.toEventModel
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.toNewsModel
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.events.EventModel
+import com.inmersoft.trinidadpatrimonialkmm.domain.models.news.NewsModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -77,6 +79,10 @@ class MainActivity : AppCompatActivity() {
                 mutableStateOf<List<EventModel>>(emptyList())
             }
 
+            val listNews = rememberSaveable {
+                mutableStateOf<List<NewsModel>>(emptyList())
+            }
+
             LaunchedEffect(Unit) {
 
                 scope.launch {
@@ -87,6 +93,12 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     listEvents.value = events.content.map { it.toEventModel() }
+
+                    val news = withContext(Dispatchers.IO) {
+                        t.fetchByCollection("en", CollectionTypes.News.id)
+                    }
+
+                    listNews.value = news.content.map { it.toNewsModel() }
 
                     val routes =
                         withContext(Dispatchers.IO) { GetRoutesInteractorImpl(t).execute() }
@@ -123,6 +135,27 @@ class MainActivity : AppCompatActivity() {
                             ), contentAlignment = Alignment.Center
                     ) {
                         LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            item {
+                                Text(text = "NEWS")
+                            }
+                            item {
+                                LazyRow(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                ) {
+                                    items(listNews.value) { event ->
+                                        Card(
+                                            modifier = Modifier
+                                                .width(260.dp)
+                                        ) {
+                                            Text(text = event.title)
+                                            Text(text = event.subtitle)
+                                            Text(text = "${event.content.size} contents")
+                                        }
+                                    }
+                                }
+                            }
+
                             item {
                                 Text(text = "EVENTS")
                             }

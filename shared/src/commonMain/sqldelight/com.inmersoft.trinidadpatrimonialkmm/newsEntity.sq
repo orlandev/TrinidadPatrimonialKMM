@@ -1,0 +1,20 @@
+CREATE TABLE newsEntity (
+    newsId INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    content TEXT NOT NULL,
+    headerImages TEXT NOT NULL,
+    date REAL NOT NULL,
+    title TEXT NOT NULL,
+    subtitle TEXT NOT NULL
+);
+
+getAllNews:
+SELECT * FROM newsEntity ORDER BY date DESC;
+
+getNewsById:
+SELECT * FROM newsEntity WHERE newsId=:id;
+
+insertNews:
+INSERT OR REPLACE
+INTO newsEntity VALUES(?,?,?,?,?,?);
+
+
