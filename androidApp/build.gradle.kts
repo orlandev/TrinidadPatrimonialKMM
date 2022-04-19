@@ -59,6 +59,8 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("com.google.android.material:material:1.5.0")
 
+
+
     implementation(Compose.compiler)
     implementation(Compose.ui)
     implementation(Compose.runtime)
@@ -72,13 +74,45 @@ dependencies {
     implementation(Compose.paging)
     implementation(Compose.coilCompose)
 
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+
     //Compose Material 3
     implementation(Compose.material3)
 
-    implementation(Koin.core)
-    implementation(Koin.android)
-    implementation(Koin.compose)
 
+    //IContent
+    implementation("com.github.orlandev:icontent:1.0.26")
+
+    //GMap
+    implementation("com.github.orlandev:gmap:0.0.12")
+
+
+//Accompanist
+
+    implementation(Accompanist.placeholderMaterial)
+    implementation(Accompanist.flowLayout)
+    implementation(Accompanist.swipeRefresh)
+    implementation(Accompanist.insets)
+    implementation(Accompanist.systemuiController)
+    implementation(Accompanist.pager)
+    implementation(Accompanist.pagerIndicators)
+    implementation(Accompanist.navigationAnimation)
+
+    implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation("androidx.activity:activity-compose:1.4.0")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation(
+        "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    )
+    debugImplementation(
+        "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    )
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.3.0")
