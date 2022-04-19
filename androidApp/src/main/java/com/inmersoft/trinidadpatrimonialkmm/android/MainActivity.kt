@@ -1,8 +1,8 @@
 package com.inmersoft.trinidadpatrimonialkmm.android
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -42,7 +42,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     val t = TrinidadRepositoryImpl(
         localDataSource = TrinidadLocalDataSource(createDatabase(DatabaseDriverFactory(this))),
@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
             LaunchedEffect(Unit) {
 
                 scope.launch {
-                    t.fetchAndCacheData(userLocale = "es")
 
                     val events = withContext(Dispatchers.IO) {
                         t.fetchByCollection("en", CollectionTypes.Events.id)
@@ -117,6 +116,8 @@ class MainActivity : AppCompatActivity() {
                         withContext(Dispatchers.IO) { GetTextContentDataInteractorImpl(t).execute() }
                     listTextContent.value = text
                 }
+                scope.launch { t.fetchAndCacheData(userLocale = "es") }
+
 
             }
 

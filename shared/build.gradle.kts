@@ -33,7 +33,7 @@ kotlin {
                 implementation(Deps.napierLoggin)
                 implementation(Deps.KTor.ktorClientAuth)
                implementation(Deps.kotlinSerializationJson)
-                implementation(Deps.SqlDelight.sqldelightCoroutineExtensions)
+                implementation(SqlDelight.sqldelightCoroutineExtensions)
 
                 // koin
                 api(Koin.core)
@@ -50,7 +50,7 @@ kotlin {
 
             dependencies {
                 implementation(Deps.KTor.ktorClientOKHTTP)
-                implementation(Deps.SqlDelight.sqldelightAndroidDriver)
+                implementation(SqlDelight.sqldelightAndroidDriver)
                 implementation(Deps.KTor.ktorClientAndroid)
             }
 
@@ -67,7 +67,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
                 dependencies {
-                    implementation(Deps.SqlDelight.sqldelightNativeDriver)
+                    implementation(SqlDelight.sqldelightNativeDriver)
                     implementation(Deps.KTor.ktorClientIOS)
                 }
         }

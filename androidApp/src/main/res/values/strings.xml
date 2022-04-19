@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Trinidad Patrimonial</string>
+    <string name="home">Inicio</string>
+    <string name="map">Mapa</string>
+    <string name="qrscanner">Scaner</string>
+    <string name="menu">Menu</string>
+    <string name="activities_screen_title">Actividades</string>
+    <string name="events_screen_title">Eventos</string>
+    <string name="prepare_screen_title">Prepárate</string>
+    <string name="itinerary_screen_title">Itinerario</string>
+    <string name="go_back">Navegar hacia la pantalla anterior</string>
+    <string name="open_card">Ver mas</string>
+    <string name="share_text">Compartir</string>
+    <string name="tutorial_text">Tutorial</string>
+    <string name="faq_text">Preguntas frecuentes</string>
+    <string name="normas_text">Normas</string>
+    <string name="settings_text">Configuración</string>
+    <string name="about_text">Acerca de</string>
+    <string name="trinidad">Trinidad</string>
+    <string name="patrimonial">Patrimonial</string>
+    <string name="more_apps_text">Más aplicaciones</string>
+    <string name="search">Buscar</string>
+    <string name="faqTitle">Preguntas frecuentes</string>
+    <string name="normasTitle">Normas</string>
+    <string name="shop_text">Tienda</string>
+    <string name="news_title">Noticias</string>
+    <string name="no_news">No hay noticias.</string>
+    <string name="news_popular">Noticias más populares.</string>
+    <string name="moments_news">Noticias del momento.</string>
+    <string name="experiences">Experiencias</string>
+    <string name="where_it">Donde Comer</string>
+    <string name="where_sleep">Donde Dormir</string>
+    <string name="map_not_load_by_places_are_empty">No hay Información para mostrar en el Mapa</string>
+    <string name="see_now">Ver ahora</string>
+    <string name="no_event">No se han encontrado eventos</string>
+    <string name="start_event">Comienzo</string>
+    <string name="end_event">Fin</string>
+    <string name="place_event">Lugar</string>
+    <string name="no_events_details">No se han encontrado los detalles para este evento.</string>
+    <string name="events_title">Eventos</string>
+
+    <string name="site_review">Califica este sitio.</string>
+    <string name="publish_review_button_text">Publicar</string>
+    <string name="comment">Deja tu comentario…</string>
+    <string name="share_opinion">Comparte tu opinion con otros usuarios.</string>
+    <string name="review_thanks">Gracias por su comentario.</string>
+    <string name="channelName">TRINIDAD_FETCH_DATA</string>
+    <string name="channelDescription">Send and receive new data from backend</string>
+    <string name="worker_refresh_data_notification_msg">"Hay nuevos lugares para ti…"</string>
+    <string name="worker_refresh_events_notification_msg">Hay nuevos eventos en Trinidad. No te los pierdas.</string>
+    <string name="worker_refresh_news_notification_msg">Informate! Tenemos nuevas noticias para ti.</string>
+    <string name="google_play_more_apps">\"https://play.google.com/store/apps/dev?id=5635942162801822123\"</string>
+
+</resources>

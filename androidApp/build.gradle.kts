@@ -56,10 +56,7 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("com.google.android.material:material:1.5.0")
-
-
+    implementation ("androidx.core:core-ktx:1.7.0")
 
     implementation(Compose.compiler)
     implementation(Compose.ui)
@@ -71,7 +68,7 @@ dependencies {
     implementation(Compose.material)
     implementation(Compose.materialIconsExtended)
     implementation(Compose.navigation)
-    implementation(Compose.paging)
+  //  implementation(Compose.paging)
     implementation(Compose.coilCompose)
 
     // ViewModel
@@ -82,18 +79,20 @@ dependencies {
     //Compose Material 3
     implementation(Compose.material3)
 
+/*
 
     //IContent
     implementation("com.github.orlandev:icontent:1.0.26")
 
     //GMap
     implementation("com.github.orlandev:gmap:0.0.12")
+*/
 
 
 //Accompanist
 
     implementation(Accompanist.placeholderMaterial)
-    implementation(Accompanist.flowLayout)
+  //  implementation(Accompanist.flowLayout)
     implementation(Accompanist.swipeRefresh)
     implementation(Accompanist.insets)
     implementation(Accompanist.systemuiController)
@@ -103,7 +102,8 @@ dependencies {
 
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
