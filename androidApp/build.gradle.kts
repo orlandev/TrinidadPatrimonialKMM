@@ -12,13 +12,7 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-
-
+    
     buildFeatures {
         compose = true
     }
@@ -63,7 +57,6 @@ dependencies {
     implementation(Compose.runtime)
     implementation(Compose.activity)
     implementation(Compose.uiGraphics)
-    implementation(Compose.uiTooling)
     implementation(Compose.foundationLayout)
     implementation(Compose.material)
     implementation(Compose.materialIconsExtended)
@@ -71,10 +64,7 @@ dependencies {
   //  implementation(Compose.paging)
     implementation(Compose.coilCompose)
 
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
-    // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    debugImplementation(Compose.uiTooling)
 
     //Compose Material 3
     implementation(Compose.material3)
@@ -100,8 +90,6 @@ dependencies {
     implementation(Accompanist.pagerIndicators)
     implementation(Accompanist.navigationAnimation)
 
-    implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.appcompat:appcompat:1.4.1")
 
     testImplementation("junit:junit:4.13.2")
@@ -109,9 +97,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation(
         "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
-    )
-    debugImplementation(
-        "androidx.compose.ui:ui-tooling:${Versions.compose}"
     )
 
     testImplementation("junit:junit:4.13.2")

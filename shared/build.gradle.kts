@@ -25,14 +25,14 @@ kotlin {
             dependencies {
                 api(Deps.Kotlinx.coroutinesCore)
 
-
                 //KTOR
-                implementation(Deps.KTor.ktorClientCore)
-                implementation(Deps.KTor.ktorClientSerialization)
-                implementation(Deps.KTor.ktorClientLogging)
+                implementation(KTor.ktorClientCore)
+                implementation(KTor.ktorClientSerialization)
+                implementation(KTor.ktorClientLogging)
+                implementation(KTor.ktorClientAuth)
+
                 implementation(Deps.napierLoggin)
-                implementation(Deps.KTor.ktorClientAuth)
-               implementation(Deps.kotlinSerializationJson)
+                implementation(Deps.kotlinSerializationJson)
                 implementation(SqlDelight.sqldelightCoroutineExtensions)
 
                 // koin
@@ -50,10 +50,11 @@ kotlin {
         val androidMain by getting{
 
             dependencies {
-                implementation(Deps.KTor.ktorClientOKHTTP)
+                implementation(KTor.ktorClientOKHTTP)
+                implementation(KTor.ktorClientAndroid)
+
                 implementation(SqlDelight.sqldelightAndroidDriver)
                 implementation(Koin.android)
-                implementation(Deps.KTor.ktorClientAndroid)
             }
 
         }
@@ -70,7 +71,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
                 dependencies {
                     implementation(SqlDelight.sqldelightNativeDriver)
-                    implementation(Deps.KTor.ktorClientIOS)
+                    implementation(KTor.ktorClientIOS)
                 }
         }
         val iosX64Test by getting

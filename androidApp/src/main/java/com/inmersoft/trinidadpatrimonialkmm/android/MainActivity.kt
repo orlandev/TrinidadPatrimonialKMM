@@ -14,8 +14,6 @@ import androidx.compose.ui.Modifier
 import com.inmersoft.trinidadpatrimonialkmm.android.ui.theme.TrinidadPatrimonialKMMTheme
 
 class MainActivity : ComponentActivity() {
-
-
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

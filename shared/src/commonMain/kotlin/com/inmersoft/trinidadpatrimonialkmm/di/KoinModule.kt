@@ -3,7 +3,7 @@ package com.inmersoft.trinidadpatrimonialkmm.di
 import com.inmersoft.trinidadpatrimonialkmm.coroutine.getDispatcherProvider
 import com.inmersoft.trinidadpatrimonialkmm.data.TrinidadRepositoryImpl
 
-import com.inmersoft.trinidadpatrimonialkmm.data.local.TrinidadLocalDataSource 
+import com.inmersoft.trinidadpatrimonialkmm.data.local.TrinidadLocalDataSource
 import com.inmersoft.trinidadpatrimonialkmm.data.remote.TrinidadRemoteDataSource
 import com.inmersoft.trinidadpatrimonialkmm.domain.interceptors.GetPlaceInteractorImpl
 import com.inmersoft.trinidadpatrimonialkmm.domain.interceptors.GetPlaceTypeDataInteractorImpl
@@ -30,13 +30,6 @@ private val appModule=module{
     }
 }
 
-/*private val databaseModule=module{
-
-    *//*single {
-        //val database=createDatabase(DatabaseDriverFactory)
-        ///database
-    }*//*
-}*/
 
 private val useCaseModule = module {
 
@@ -57,7 +50,7 @@ private val useCaseModule = module {
     }
 
 }
-private val sharedModules = listOf(appModule,useCaseModule)
+private val sharedModules = listOf(appModule, useCaseModule)
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
     modules(sharedModules)
