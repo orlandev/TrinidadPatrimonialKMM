@@ -1,12 +1,13 @@
 package com.inmersoft.trinidadpatrimonialkmm.data.local
 
-import android.content.Context
 import com.inmersoft.trinidadpatrimonialkmm.TrinidadDb
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import com.squareup.sqldelight.db.SqlDriver
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.scope.Scope
 
-actual class DatabaseDriverFactory(private val context: Context) {
-    actual fun createDriver(): SqlDriver {
-        return AndroidSqliteDriver(TrinidadDb.Schema, context, "trinidad_database.db")
-    }
-}
+internal actual fun Scope.createDriver(databaseName: String): SqlDriver =
+    AndroidSqliteDriver(
+        TrinidadDb.Schema,
+        androidContext(), databaseName
+    )

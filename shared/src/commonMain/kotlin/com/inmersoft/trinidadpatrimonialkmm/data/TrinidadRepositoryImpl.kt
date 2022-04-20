@@ -1,6 +1,6 @@
 package com.inmersoft.trinidadpatrimonialkmm.data
 
-import com.inmersoft.trinidadpatrimonialkmm.DispatcherProvider
+import com.inmersoft.trinidadpatrimonialkmm.coroutine.DispatcherProvider
 import com.inmersoft.trinidadpatrimonialkmm.data.local.TrinidadLocalDataSource
 import com.inmersoft.trinidadpatrimonialkmm.data.remote.TrinidadRemoteDataSource
 import com.inmersoft.trinidadpatrimonialkmm.domain.TrinidadRepository

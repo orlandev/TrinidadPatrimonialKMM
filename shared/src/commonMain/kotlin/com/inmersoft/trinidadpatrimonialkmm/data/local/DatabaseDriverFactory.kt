@@ -1,13 +1,8 @@
 package com.inmersoft.trinidadpatrimonialkmm.data.local
 
-import com.inmersoft.trinidadpatrimonialkmm.TrinidadDb
 import com.squareup.sqldelight.db.SqlDriver
+import org.koin.core.scope.Scope
 
-fun createDatabase(databaseDriverFactory: DatabaseDriverFactory): TrinidadDb {
-    val driver = databaseDriverFactory.createDriver()
-    return TrinidadDb(driver)
-}
+internal expect fun Scope.createDriver(databaseName:
+                                       String): SqlDriver
 
-expect class DatabaseDriverFactory {
-    fun createDriver(): SqlDriver
-}

@@ -44,6 +44,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                api(Koin.core)
             }
         }
         val androidMain by getting{
@@ -51,6 +52,7 @@ kotlin {
             dependencies {
                 implementation(Deps.KTor.ktorClientOKHTTP)
                 implementation(SqlDelight.sqldelightAndroidDriver)
+                implementation(Koin.android)
                 implementation(Deps.KTor.ktorClientAndroid)
             }
 

@@ -9,6 +9,7 @@
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
+        android:name=".TrinidadApplication"
         android:theme="@style/Theme.TrinidadPatrimonialKMM">
         <activity
             android:name=".MainActivity"

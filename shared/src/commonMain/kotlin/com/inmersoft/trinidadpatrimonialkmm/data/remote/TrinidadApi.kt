@@ -1,6 +1,7 @@
 package com.inmersoft.trinidadpatrimonialkmm.data.remote
 
 import com.inmersoft.trinidadpatrimonialkmm.data.remote.dto.TrinidadResponseDto
+import com.inmersoft.trinidadpatrimonialkmm.domain.api.BaseTrinidadApi
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.account.AccountDTO
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.content.ContentDTO
 import com.inmersoft.trinidadpatrimonialkmm.domain.models.posts.ResultPost
@@ -15,7 +16,7 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
-class TrinidadApi {
+class TrinidadApi() : BaseTrinidadApi() {
 
     private val httpClient = HttpClient() {
 
@@ -44,20 +45,20 @@ class TrinidadApi {
     }
 
     @Throws(Exception::class)
-    suspend fun getTrinidadData(userLocale: String = "en"): TrinidadResponseDto {
+    override suspend fun getTrinidadData(userLocale: String): TrinidadResponseDto {
         return httpClient.get("$TRINIDAD_API_ENDPOINT/api/load/all?lang=$userLocale")
     }
 
     @Throws(Exception::class)
-    suspend fun fetchAllByCollection(
-        lang: String = "en",
+    override suspend fun fetchAllByCollection(
+        lang: String,
         collection: String
     ): ContentDTO {
         return httpClient.get("$TRINIDAD_API_ENDPOINT/api/load/all?lang=$lang&collection=$collection")
     }
 
     @Throws(Exception::class)
-    suspend fun postUserReview(reviewPost: ReviewPost): ResultPost {
+    override suspend fun postUserReview(reviewPost: ReviewPost): ResultPost {
         val response: ResultPost = httpClient.post("$TRINIDAD_API_ENDPOINT/api/save/stars") {
             contentType(ContentType.Application.Json)
             body = reviewPost
@@ -66,7 +67,7 @@ class TrinidadApi {
     }
 
     @Throws(Exception::class)
-    suspend fun postUserData(userAccountData: AccountDTO): ResultPost {
+    override suspend fun postUserData(userAccountData: AccountDTO): ResultPost {
         val response: ResultPost = httpClient.post("$TRINIDAD_API_ENDPOINT/api/gmail/save") {
             contentType(ContentType.Application.Json)
             body = userAccountData
@@ -75,7 +76,7 @@ class TrinidadApi {
     }
 
     @Throws(Exception::class)
-    suspend fun postEventAnalytics(userEventAnalytics: EventAnalyticsPost): ResultPost {
+    override suspend fun postEventAnalytics(userEventAnalytics: EventAnalyticsPost): ResultPost {
         val response: ResultPost = httpClient.post("$TRINIDAD_API_ENDPOINT/api/analytics") {
             contentType(ContentType.Application.Json)
             body = userEventAnalytics
